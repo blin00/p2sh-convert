@@ -1,17 +1,17 @@
 <html>
 	<head>
 		<title>P2SH Converter</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="bootstrap-3.3.7.min.css">
 	</head>
-	
 
-	<script src='bitcoinjs.min.js'></script>
+
+	<script src="bitcoinjs-3.3.2.js"></script>
 	<script type="text/javascript">
 		function convert() {
 			try {
 				address = document.getElementById('address').value;
 				decoded = bitcoin.address.fromBase58Check(address);
-				version = decoded['version']
+				version = decoded['version'];
 
 				switch (version) {
 					case 5:
@@ -37,7 +37,7 @@
 				// 196 <-> 58
 				address = bitcoin.address.toBase58Check(decoded['hash'], version);
 			} catch(err) {
-				message = "Please enter a valid address."
+				message = "Please enter a valid address.";
 			    address = "";
 			}
 
@@ -51,7 +51,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">P2SH Converter</a>
     </div>
-   
+
 
 </nav>
 
@@ -66,8 +66,8 @@
 				<button class="btn btn-primary" type="button" onclick="convert();" style="margin-top: 4px">Convert</button>
 			</div>
 		</div>
-		
-		
+
+
 		<label id="message"/>
 
 	</div>
